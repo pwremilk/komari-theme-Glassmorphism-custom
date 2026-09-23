@@ -92,7 +92,7 @@ const sitename = computed(() => appStore.publicSettings?.sitename || 'Komari Mon
   <VisitorInfo v-if="!appStore.loading && appStore.visitorInfoEnabled" />
 
   <div
-    class="transition-all duration-200 top-0 sticky z-10 border-b border-transparent"
+    class="glass-header transition-all duration-200 top-0 sticky z-10 border-b border-transparent"
     :class="isScrolled ? '!border-slate-500/10' : 'bg-transparent'"
   >
     <div class="px-4 flex-between h-14 max-w-[1280px] mx-auto">

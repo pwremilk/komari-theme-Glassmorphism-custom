@@ -52,7 +52,7 @@
 .dark {
   --background: rgb(255 255 255 / 0.05);
   --foreground: oklch(0.985 0 0);
-  --card: rgb(255 255 255 / 0.10);
+  --card: rgb(255 255 255 / 0.1);
   --card-foreground: oklch(0.985 0 0);
   --popover: rgb(255 255 255 / 0.12);
   --popover-foreground: oklch(0.985 0 0);
@@ -318,7 +318,7 @@ html.legacy-webkit [data-slot='card'] {
 .dark .bg-card,
 .dark [data-slot='card'] {
   /* Dark mode: keep a translucent glass feel while improving foreground contrast */
-  background-color: rgb(255 255 255 / 0.10) !important;
+  background-color: rgb(255 255 255 / 0.1) !important;
   backdrop-filter: blur(5px) saturate(130%) !important;
   -webkit-backdrop-filter: blur(5px) saturate(130%) !important;
   border: 1px solid var(--glass-dark-border, rgb(255 255 255 / 0.18)) !important;
@@ -445,4 +445,51 @@ header {
 
 .dark .bg-slate-500\/5 {
   background-color: rgb(255 255 255 / 0.05) !important;
+}
+
+/* ── custom: 顶栏毛玻璃 ── */
+.glass-header {
+  backdrop-filter: blur(5px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(5px) saturate(130%) !important;
+}
+
+/* ── custom: 列表行/控件毛玻璃 (bg-background/* 半透明白底都加) ── */
+[class~='bg-background/10'],
+[class~='bg-background/40'],
+[class~='bg-background/50'],
+[class~='bg-background/70'] {
+  backdrop-filter: blur(5px) saturate(130%);
+  -webkit-backdrop-filter: blur(5px) saturate(130%);
+}
+
+/* ── custom: 背景图偏亮时文字自动转深色 ── */
+:root.glass-bg-light {
+  --background: rgb(255 255 255 / 0.35);
+  --foreground: rgb(17 20 28);
+  --card: rgb(255 255 255 / 0.45);
+  --card-foreground: rgb(17 20 28);
+  --popover: rgb(255 255 255 / 0.85);
+  --popover-foreground: rgb(17 20 28);
+  --secondary: rgb(255 255 255 / 0.45);
+  --secondary-foreground: rgb(17 20 28);
+  --muted: rgb(255 255 255 / 0.4);
+  --muted-foreground: rgb(60 66 80);
+  --accent: rgb(255 255 255 / 0.5);
+  --accent-foreground: rgb(17 20 28);
+}
+:root.glass-bg-light .node-card,
+:root.glass-bg-light .bg-card,
+:root.glass-bg-light [data-slot='card'] {
+  background-color: rgb(255 255 255 / 0.45) !important;
+  border-color: rgb(15 23 42 / 0.15) !important;
+  box-shadow: 0 4px 18px rgb(15 23 42 / 0.1) !important;
+}
+:root.glass-bg-light body,
+:root.glass-bg-light .node-card,
+:root.glass-bg-light [data-slot='card'] {
+  text-shadow: none;
+}
+:root:not(.glass-bg-light) .node-card,
+:root:not(.glass-bg-light) .glass-header {
+  text-shadow: 0 1px 2px rgb(0 0 0 / 0.45);
 }

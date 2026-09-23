@@ -67,6 +67,38 @@ function clearImageLoader() {
   }
 }
 
+function applyLuminanceClass(luminance: number) {
+  const el = document.documentElement
+  if (luminance > 155)
+    el.classList.add('glass-bg-light')
+  else
+    el.classList.remove('glass-bg-light')
+}
+
+function sampleLuminance(url: string) {
+  // 独立 CORS 图片做 canvas 采样; 服务端不给 CORS 就静默跳过
+  const probe = new Image()
+  probe.crossOrigin = 'anonymous'
+  probe.onload = () => {
+    try {
+      const c = document.createElement('canvas')
+      c.width = 32
+      c.height = 32
+      const ctx = c.getContext('2d')
+      if (!ctx)
+        return
+      ctx.drawImage(probe, 0, 0, 32, 32)
+      const d = ctx.getImageData(0, 0, 32, 32).data
+      let sum = 0
+      for (let i = 0; i < d.length; i += 4)
+        sum += 0.2126 * (d[i] ?? 0) + 0.7152 * (d[i + 1] ?? 0) + 0.0722 * (d[i + 2] ?? 0)
+      applyLuminanceClass(sum / (d.length / 4))
+    }
+    catch { /* tainted canvas: 无法采样, 保持默认浅色文字 */ }
+  }
+  probe.src = url
+}
+
 function loadImage(url: string) {
   isLoaded.value = false
   hasError.value = false
@@ -77,6 +109,7 @@ function loadImage(url: string) {
   imageLoader.onload = () => {
     isLoaded.value = true
     hasError.value = false
+    sampleLuminance(url)
   }
   imageLoader.onerror = () => {
     isLoaded.value = false
@@ -89,6 +122,7 @@ const videoRef = ref<HTMLVideoElement | null>(null)
 
 function resetBackgroundState() {
   clearImageLoader()
+  document.documentElement.classList.remove('glass-bg-light')
 
   if (videoRef.value) {
     videoRef.value.pause()
