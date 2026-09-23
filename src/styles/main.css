@@ -417,7 +417,7 @@ header {
 }
 
 .dark header {
-  background-color: rgb(255 255 255 / 0.14) !important;
+  background-color: rgb(255 255 255 / 0.1) !important;
   backdrop-filter: blur(5px) saturate(130%) !important;
   -webkit-backdrop-filter: blur(5px) saturate(130%) !important;
   border-bottom: 1px solid rgb(255 255 255 / 0.08) !important;
@@ -432,7 +432,7 @@ header {
 }
 
 .dark .bg-background {
-  background-color: rgb(255 255 255 / 0.08) !important;
+  background-color: rgb(255 255 255 / 0.1) !important;
   backdrop-filter: blur(5px) saturate(130%) !important;
   -webkit-backdrop-filter: blur(5px) saturate(130%) !important;
 }
@@ -492,4 +492,21 @@ header {
 :root:not(.glass-bg-light) .node-card,
 :root:not(.glass-bg-light) .glass-header {
   text-shadow: 0 1px 2px rgb(0 0 0 / 0.45);
+}
+
+/* ── custom v3.4.2: header/详情页/列表行 与卡片同透明度 ── */
+.dark [class~="bg-background/10"],
+.dark [class~="bg-background/40"],
+.dark [class~="bg-background/50"],
+.dark [class~="bg-background/70"] {
+  background-color: rgb(255 255 255 / 0.1) !important;
+}
+
+:root.glass-bg-light header,
+:root.glass-bg-light .bg-background,
+:root.glass-bg-light [class~="bg-background/10"],
+:root.glass-bg-light [class~="bg-background/40"],
+:root.glass-bg-light [class~="bg-background/50"],
+:root.glass-bg-light [class~="bg-background/70"] {
+  background-color: rgb(255 255 255 / 0.45) !important;
 }
