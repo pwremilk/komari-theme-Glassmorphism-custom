@@ -50,19 +50,19 @@
 }
 
 .dark {
-  --background: oklch(0.141 0.005 285.823);
+  --background: rgb(255 255 255 / 0.05);
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0.21 0.006 285.885);
+  --card: rgb(255 255 255 / 0.10);
   --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.21 0.006 285.885);
+  --popover: rgb(255 255 255 / 0.12);
   --popover-foreground: oklch(0.985 0 0);
   --primary: oklch(0.92 0.004 286.32);
   --primary-foreground: oklch(0.21 0.006 285.885);
-  --secondary: oklch(0.274 0.006 286.033);
+  --secondary: rgb(255 255 255 / 0.12);
   --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.274 0.006 286.033);
+  --muted: rgb(255 255 255 / 0.12);
   --muted-foreground: oklch(0.86 0.012 286.067);
-  --accent: oklch(0.274 0.006 286.033);
+  --accent: rgb(255 255 255 / 0.14);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: oklch(0.985 0 0);
@@ -319,6 +319,8 @@ html.legacy-webkit [data-slot='card'] {
 .dark [data-slot='card'] {
   /* Dark mode: keep a translucent glass feel while improving foreground contrast */
   background-color: rgb(255 255 255 / 0.10) !important;
+  backdrop-filter: blur(5px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(5px) saturate(130%) !important;
   border: 1px solid var(--glass-dark-border, rgb(255 255 255 / 0.18)) !important;
   box-shadow: var(--glass-dark-shadow, 0 8px 30px rgb(0 0 0 / 0.48)) !important;
 }
@@ -416,6 +418,8 @@ header {
 
 .dark header {
   background-color: rgb(255 255 255 / 0.14) !important;
+  backdrop-filter: blur(5px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(5px) saturate(130%) !important;
   border-bottom: 1px solid rgb(255 255 255 / 0.08) !important;
 }
 
@@ -429,6 +433,8 @@ header {
 
 .dark .bg-background {
   background-color: rgb(255 255 255 / 0.08) !important;
+  backdrop-filter: blur(5px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(5px) saturate(130%) !important;
 }
 
 /* ===== 小组件背景 ===== */
