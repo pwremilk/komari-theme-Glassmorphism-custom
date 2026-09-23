@@ -511,7 +511,7 @@ const metricCards = computed<MetricCard[]>(() => appStore.detailMetricCardOrder.
             {{ tag }}
           </Badge>
         </div>
-        <div class="ml-auto flex h-8 shrink-0 items-center gap-1 rounded-md bg-background/50 p-0.5 backdrop-blur-xs">
+        <div class="ml-auto flex h-8 shrink-0 items-center gap-1 rounded-md bg-background/50 p-0.5">
           <Button
             variant="ghost" size="icon-sm"
             class="size-7 rounded-sm shadow-none"
@@ -567,7 +567,7 @@ const metricCards = computed<MetricCard[]>(() => appStore.detailMetricCardOrder.
 
       <div v-if="appStore.nodeDetailSectionTabsEnabled" class="px-4 overflow-x-auto">
         <Tabs v-model="activeDetailSection" class="w-full">
-          <TabsList class="w-max h-8 bg-background/50 backdrop-blur-xl rounded-md">
+          <TabsList class="w-max h-8 bg-background/50 rounded-md">
             <TabsTrigger value="overview" class="h-6.5 flex-none shrink-0 gap-1 text-xs border-none data-[state=active]:text-selection shadow-none rounded-sm">
               <Icon icon="tabler:layout-dashboard" :width="12" :height="12" />
               概览

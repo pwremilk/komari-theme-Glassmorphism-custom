@@ -93,7 +93,7 @@ const clusterMarkers = computed<ClusterMarker[]>(() => regionClusters.value.map(
 
 <template>
   <div class="earth-map-scroll relative z-0 h-full w-full overflow-x-auto overflow-y-visible pointer-events-auto">
-    <div class="earth-map-shell relative mx-auto h-full w-full overflow-hidden rounded-[1.5rem] border border-white/35 bg-background/35 shadow-[0_24px_80px_rgb(15_23_42/0.18)] backdrop-blur-2xl dark:border-cyan-200/10 dark:bg-slate-950/35">
+    <div class="earth-map-shell relative mx-auto h-full w-full overflow-hidden rounded-[1.5rem] border border-white/35 bg-background/35 shadow-[0_24px_80px_rgb(15_23_42/0.18)] dark:border-cyan-200/10 dark:bg-slate-950/35">
       <div class="earth-map relative h-full min-w-0 overflow-hidden">
         <svg class="map-svg absolute inset-0 size-full" :viewBox="`0 0 ${MAP_WIDTH} ${MAP_HEIGHT}`" preserveAspectRatio="xMidYMid meet" role="img" aria-label="真实地球贴图节点世界地图">
           <defs>
@@ -126,7 +126,7 @@ const clusterMarkers = computed<ClusterMarker[]>(() => regionClusters.value.map(
           </g>
         </svg>
 
-        <div class="absolute left-3 top-3 z-10 flex items-center gap-2 rounded-full border border-sky-100/35 bg-background/55 px-2.5 py-1 text-[10px] font-medium text-muted-foreground shadow-lg shadow-sky-950/10 backdrop-blur-xl md:left-4 md:top-4">
+        <div class="absolute left-3 top-3 z-10 flex items-center gap-2 rounded-full border border-sky-100/35 bg-background/55 px-2.5 py-1 text-[10px] font-medium text-muted-foreground shadow-lg shadow-sky-950/10 md:left-4 md:top-4">
           <span class="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-300">
             <span class="size-1.5 rounded-full bg-emerald-400 shadow-[0_0_10px_rgb(52_211_153/0.85)]" />
             {{ onlineServers }} ONLINE
@@ -292,7 +292,7 @@ const clusterMarkers = computed<ClusterMarker[]>(() => regionClusters.value.map(
   font-size: 0.62rem;
   font-weight: 800;
   letter-spacing: 0.22em;
-  backdrop-filter: blur(12px) saturate(150%);
+  backdrop-filter: none;
 }
 
 .legend-title span {
@@ -352,7 +352,7 @@ const clusterMarkers = computed<ClusterMarker[]>(() => regionClusters.value.map(
   background: rgb(255 255 255 / 0.44);
   box-shadow: 0 8px 18px rgb(15 23 42 / 0.12);
   padding: var(--legend-item-padding);
-  backdrop-filter: blur(12px) saturate(150%);
+  backdrop-filter: none;
 }
 
 .legend-index {

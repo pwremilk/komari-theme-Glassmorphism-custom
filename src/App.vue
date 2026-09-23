@@ -78,7 +78,7 @@ onUnmounted(() => {
       <div v-if="!appStore.loading" class="app-shell">
         <main class="min-h-screen overflow-hidden">
           <div v-if="appStore.connectionError" class="relative z-10 mx-auto max-w-[1280px] px-4 pt-4">
-            <Alert variant="destructive" class="!pr-28 border-none bg-destructive/10 backdrop-blur-xs rounded-md">
+            <Alert variant="destructive" class="!pr-28 border-none bg-destructive/10 rounded-md">
               <Icon icon="tabler:plug-connected-x" />
               <AlertTitle>RPC 服务错误</AlertTitle>
               <AlertDescription>连接服务器失败，请检查网络后重试。</AlertDescription>

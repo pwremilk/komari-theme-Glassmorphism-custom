@@ -20,6 +20,7 @@ type JsonRecord = Record<string, unknown>
 
 const visitorFetchTimeout = 8000
 const mobileScrollIdleDelay = 700
+const visitorAutoHideDelay = 10000
 const mobileViewportQuery = '(max-width: 767px)'
 const appStore = useAppStore()
 
@@ -58,7 +59,7 @@ const compactLocation = computed(() => {
 
 const displayIp = computed(() => visitor.value.ip || (visitorLoading.value ? '获取中' : '未获取到'))
 const displayCountry = computed(() => visitor.value.country || (visitorLoading.value ? '定位中' : '未知地区'))
-const displayOrg = computed(() => visitor.value.org || (visitorLoading.value ? '正在获取网络信息' : '运营商未知'))
+const displayOrg = computed(() => visitor.value.org || (visitorLoading.value ? '获取中' : '未知厂商'))
 const welcomeLocation = computed(() => visitor.value.city || visitor.value.country || (visitorLoading.value ? 'your network' : 'unknown location'))
 const visitorStatusText = computed(() => {
   if (visitorLoading.value)
@@ -101,6 +102,10 @@ onMounted(async () => {
   window.setTimeout(() => {
     show.value = true
   }, 600)
+
+  window.setTimeout(() => {
+    dismissed.value = true
+  }, visitorAutoHideDelay)
 
   try {
     const data = await fetchVisitorData()
@@ -301,7 +306,7 @@ const siteName = computed(() => appStore.privateFeaturesAllowed ? '尊敬的管�
       class="fixed bottom-3 left-1/2 z-50 flex w-max max-w-[calc(100vw-1.5rem)] -translate-x-1/2
              items-center gap-1.5 rounded-full px-3 py-1.5 md:bottom-4 md:gap-2 md:px-4
              bg-white/55 dark:bg-black/50
-             backdrop-blur-md
+
              border border-white/40 dark:border-white/10
              shadow-lg text-[12px] md:text-[13px] select-none whitespace-nowrap"
     >
@@ -310,8 +315,8 @@ const siteName = computed(() => appStore.privateFeaturesAllowed ? '尊敬的管�
       <span class="min-w-0 truncate font-semibold text-foreground">{{ displayIp }}</span>
       <span class="text-muted-foreground/40 shrink-0">|</span>
       <span class="max-w-20 shrink-0 truncate text-muted-foreground sm:max-w-none">{{ displayCountry }}</span>
-      <span class="hidden sm:inline text-muted-foreground/40 shrink-0">|</span>
-      <span class="hidden sm:inline text-muted-foreground truncate max-w-[140px] md:max-w-[220px]">{{ displayOrg }}</span>
+      <span class="text-muted-foreground/40 shrink-0">|</span>
+      <span class="text-muted-foreground truncate max-w-[140px] md:max-w-[220px]">{{ displayOrg }}</span>
     </div>
   </Transition>
 
@@ -321,7 +326,7 @@ const siteName = computed(() => appStore.privateFeaturesAllowed ? '尊敬的管�
       v-if="show && !dismissed"
       class="fixed bottom-16 left-3 z-50 hidden w-56 max-w-[calc(100vw-1.5rem)] overflow-hidden rounded-2xl 2xl:block
              bg-white/70 dark:bg-neutral-900/70
-             backdrop-blur-xl
+
              border border-white/40 dark:border-white/10
              shadow-2xl"
     >

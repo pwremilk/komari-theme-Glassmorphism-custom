@@ -28,7 +28,7 @@ function toSize(v: number | string) {
     <div
       v-if="show"
       :class="cn(
-        'absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-card/60 backdrop-blur-sm',
+        'absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-card/60',
         props.contentClass,
       )"
     >

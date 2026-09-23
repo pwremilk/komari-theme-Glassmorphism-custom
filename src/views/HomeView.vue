@@ -420,7 +420,7 @@ const nodeCardGridClass = computed(() => {
 <template>
   <div class="home-view" :class="!appStore.disablePageAnimation && 'home-view--motion'">
     <div v-if="appStore.alertEnabled && appStore.alertContent" class="alert px-4">
-      <Alert class="border-none bg-background/60 backdrop-blur-xs rounded-md">
+      <Alert class="border-none bg-background/60 rounded-md">
         <AlertTitle v-if="appStore.alertTitle">
           {{ appStore.alertTitle }}
         </AlertTitle>
@@ -443,7 +443,7 @@ const nodeCardGridClass = computed(() => {
           <div class="flex flex-col gap-2 xl:flex-row xl:items-center">
             <div class="home-controls-scroll min-w-0 overflow-x-auto overscroll-x-contain rounded-sm pointer-events-auto touch-pan-x">
               <div class="flex w-max gap-2">
-                <TabsList class="w-max h-8 bg-background/50 backdrop-blur-xl rounded-md pointer-events-auto">
+                <TabsList class="w-max h-8 bg-background/50 rounded-md pointer-events-auto">
                   <TabsTrigger
                     v-for="g in groups" :key="g.name" :value="g.name"
                     class="h-6.5 flex-none shrink-0 text-xs border-none data-[state=active]:text-selection shadow-none rounded-sm"
@@ -454,7 +454,7 @@ const nodeCardGridClass = computed(() => {
 
                 <div
                   v-if="showQuickControls && activeHomeTool === 'nodes'"
-                  class="flex h-8 w-max items-center gap-1 rounded-md bg-background/50 px-1 backdrop-blur-xl pointer-events-auto"
+                  class="flex h-8 w-max items-center gap-1 rounded-md bg-background/50 px-1 pointer-events-auto"
                 >
                   <button
                     v-for="control in quickControls" :key="control.key"
@@ -475,7 +475,7 @@ const nodeCardGridClass = computed(() => {
               </div>
             </div>
             <div class="search flex min-w-0 flex-wrap gap-2 items-center justify-end pointer-events-auto max-sm:justify-start xl:ml-auto">
-              <div v-if="homeTools.length && appStore.homeAdvancedToolsVisible" class="flex h-8 items-center gap-1 rounded-md bg-background/50 p-0.5 backdrop-blur-xs">
+              <div v-if="homeTools.length && appStore.homeAdvancedToolsVisible" class="flex h-8 items-center gap-1 rounded-md bg-background/50 p-0.5">
                 <Button
                   v-for="tool in homeTools" :key="tool.key"
                   variant="ghost" size="icon"
@@ -492,7 +492,7 @@ const nodeCardGridClass = computed(() => {
 
               <Button
                 variant="outline" size="icon" aria-label="卡片视图"
-                class="w-8 h-8 border-none bg-background/50 backdrop-blur-xs shadow-none hover:bg-background/60 rounded-md"
+                class="w-8 h-8 border-none bg-background/50 shadow-none hover:bg-background/60 rounded-md"
                 :class="[appStore.nodeViewMode === 'card' ? '!text-selection !bg-background' : '']"
                 @click="setNodeViewMode('card')"
               >
@@ -500,7 +500,7 @@ const nodeCardGridClass = computed(() => {
               </Button>
               <Button
                 variant="outline" size="icon" aria-label="列表视图"
-                class="w-8 h-8 border-none bg-background/50 backdrop-blur-xs shadow-none hover:bg-background/60 rounded-md"
+                class="w-8 h-8 border-none bg-background/50 shadow-none hover:bg-background/60 rounded-md"
                 :class="[appStore.nodeViewMode === 'list' ? '!text-selection !bg-background' : '']"
                 @click="setNodeViewMode('list')"
               >
@@ -511,7 +511,7 @@ const nodeCardGridClass = computed(() => {
                   <Input
                     v-model="searchText" placeholder="搜索名称、地区、IP、CPU"
                     aria-label="搜索节点"
-                    class="transition-all border-none shadow-none h-8 bg-background/50 backdrop-blur-xs rounded-md hover:!bg-background/60 focus:!pl-7.5 focus:placeholder:!text-muted-foreground focus:!bg-background/80 focus:!ring-slate-500/10"
+                    class="transition-all border-none shadow-none h-8 bg-background/50 rounded-md hover:!bg-background/60 focus:!pl-7.5 focus:placeholder:!text-muted-foreground focus:!bg-background/80 focus:!ring-slate-500/10"
                     :class="searchText ? '!w-full sm:!w-60 !pl-7.5 pr-7 placeholder:!text-muted-foreground' : 'w-8 placeholder:text-transparent focus:!w-52 sm:focus:!w-60'"
                     @keydown.esc.prevent="clearSearch"
                   />

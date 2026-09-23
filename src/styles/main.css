@@ -300,15 +300,15 @@ html.legacy-webkit [data-slot='card'] {
   /* Keep the glass effect, but avoid making every card an overly expensive compositing layer. */
   background-color: var(--glass-light-card, rgb(241 245 249 / 0.74)) !important;
   border: 1px solid var(--glass-light-border, rgb(226 232 240 / 0.68)) !important;
-  backdrop-filter: blur(14px) saturate(145%) !important;
-  -webkit-backdrop-filter: blur(14px) saturate(145%) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
   box-shadow: var(--glass-light-shadow, 0 8px 28px rgb(15 23 42 / 0.18)) !important;
 }
 
 .node-card:hover,
 .bg-card:hover,
 [data-slot='card']:hover {
-  background-color: var(--glass-light-card-hover, rgb(248 250 252 / 0.8)) !important;
+  background-color: rgb(248 250 252 / 0.4) !important;
   box-shadow: var(--glass-light-shadow, 0 12px 38px rgb(15 23 42 / 0.2)) !important;
 }
 
@@ -326,7 +326,7 @@ html.legacy-webkit [data-slot='card'] {
 .dark .node-card:hover,
 .dark .bg-card:hover,
 .dark [data-slot='card']:hover {
-  background-color: var(--glass-dark-card-hover, rgb(10 14 22 / 0.9)) !important;
+  background-color: rgb(10 14 22 / 0.4) !important;
 }
 
 .node-card,
@@ -408,27 +408,27 @@ html.legacy-webkit [data-slot='card'] {
 /* ===== Header ===== */
 
 header {
-  background-color: var(--glass-light-header, rgb(241 245 249 / 0.76)) !important;
-  backdrop-filter: blur(14px) saturate(150%) !important;
-  -webkit-backdrop-filter: blur(14px) saturate(150%) !important;
+  background-color: rgb(241 245 249 / 0.3) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
   border-bottom: 1px solid rgb(226 232 240 / 0.58) !important;
 }
 
 .dark header {
-  background-color: var(--glass-dark-header, rgb(10 14 22 / 0.76)) !important;
+  background-color: rgb(10 14 22 / 0.3) !important;
   border-bottom: 1px solid rgb(255 255 255 / 0.08) !important;
 }
 
 /* ===== 顶部统计栏 ===== */
 
 .bg-background {
-  background-color: var(--glass-light-control, rgb(241 245 249 / 0.76)) !important;
-  backdrop-filter: blur(14px) saturate(145%) !important;
-  -webkit-backdrop-filter: blur(14px) saturate(145%) !important;
+  background-color: rgb(241 245 249 / 0.2) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
 .dark .bg-background {
-  background-color: var(--glass-dark-control, rgb(10 14 22 / 0.76)) !important;
+  background-color: rgb(10 14 22 / 0.2) !important;
 }
 
 /* ===== 小组件背景 ===== */
@@ -439,56 +439,4 @@ header {
 
 .dark .bg-slate-500\/5 {
   background-color: rgb(255 255 255 / 0.05) !important;
-}
-
-/* Firefox composites many backdrop-filter layers less efficiently than Chromium.
-   Use opaque-enough surfaces there so long node lists and animated globes stay smooth. */
-@supports (-moz-appearance: none) {
-  .node-card,
-  .bg-card,
-  [data-slot='card'] {
-    background-color: color-mix(in srgb, var(--glass-light-card, #f1f5f9) 88%, rgb(226 232 240)) !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-  }
-
-  .node-card:hover,
-  .bg-card:hover,
-  [data-slot='card']:hover {
-    background-color: color-mix(in srgb, var(--glass-light-card-hover, #f8fafc) 88%, rgb(226 232 240)) !important;
-  }
-
-  .dark .node-card,
-  .dark .bg-card,
-  .dark [data-slot='card'] {
-    background-color: color-mix(in srgb, var(--glass-dark-card, #0f0f19) 92%, black) !important;
-  }
-
-  .dark .node-card:hover,
-  .dark .bg-card:hover,
-  .dark [data-slot='card']:hover {
-    background-color: color-mix(in srgb, var(--glass-dark-card-hover, #0f0f19) 94%, black) !important;
-  }
-
-  header,
-  .bg-background {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-  }
-
-  header {
-    background-color: rgb(226 232 240 / 0.88) !important;
-  }
-
-  .dark header {
-    background-color: rgb(10 10 20 / 0.9) !important;
-  }
-
-  .bg-background {
-    background-color: rgb(226 232 240 / 0.84) !important;
-  }
-
-  .dark .bg-background {
-    background-color: rgb(20 20 35 / 0.86) !important;
-  }
 }

@@ -522,7 +522,7 @@ function hasRegion(region: string | null | undefined): boolean {
         <!-- 离线遮罩 -->
         <div
           v-if="!props.node.online"
-          class="absolute inset-0 flex flex-col items-center justify-center z-10 rounded-xl bg-white/20 dark:bg-black/20 backdrop-blur-[2px]"
+          class="absolute inset-0 flex flex-col items-center justify-center z-10 rounded-xl bg-white/20 dark:bg-black/20"
         >
           <div class="text-sm font-semibold text-destructive">
             离线

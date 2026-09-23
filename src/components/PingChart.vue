@@ -756,7 +756,7 @@ onBeforeUnmount(() => {
     <div class="flex flex-col gap-2">
       <Tabs v-model="selectedView" class="w-full items-center">
         <div class="min-w-0 flex-1 overflow-x-auto rounded-sm pointer-events-auto">
-          <TabsList class="w-max h-8 bg-background/50 backdrop-blur-xl rounded-md">
+          <TabsList class="w-max h-8 bg-background/50 rounded-md">
             <TabsTrigger
               v-for="view in availableViews" :key="view.label" :value="view.label"
               class="h-6.5 flex-none shrink-0 text-xs border-none data-[state=active]:text-green-600 shadow-none rounded-sm"
