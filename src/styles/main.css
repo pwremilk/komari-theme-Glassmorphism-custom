@@ -318,7 +318,7 @@ html.legacy-webkit [data-slot='card'] {
 .dark .bg-card,
 .dark [data-slot='card'] {
   /* Dark mode: keep a translucent glass feel while improving foreground contrast */
-  background-color: var(--glass-dark-card, rgb(10 14 22 / 0.82)) !important;
+  background-color: rgb(255 255 255 / 0.10) !important;
   border: 1px solid var(--glass-dark-border, rgb(255 255 255 / 0.18)) !important;
   box-shadow: var(--glass-dark-shadow, 0 8px 30px rgb(0 0 0 / 0.48)) !important;
 }
@@ -326,7 +326,7 @@ html.legacy-webkit [data-slot='card'] {
 .dark .node-card:hover,
 .dark .bg-card:hover,
 .dark [data-slot='card']:hover {
-  background-color: rgb(10 14 22 / 0.4) !important;
+  background-color: rgb(255 255 255 / 0.22) !important;
 }
 
 .node-card,
@@ -415,7 +415,7 @@ header {
 }
 
 .dark header {
-  background-color: rgb(10 14 22 / 0.3) !important;
+  background-color: rgb(255 255 255 / 0.14) !important;
   border-bottom: 1px solid rgb(255 255 255 / 0.08) !important;
 }
 
@@ -428,7 +428,7 @@ header {
 }
 
 .dark .bg-background {
-  background-color: rgb(10 14 22 / 0.2) !important;
+  background-color: rgb(255 255 255 / 0.08) !important;
 }
 
 /* ===== 小组件背景 ===== */
