@@ -9,6 +9,7 @@
 }
 
 :root {
+  --glass-rgb: 255 255 255;
   --background: oklch(0.935 0.015 252);
   --foreground: oklch(0.11 0.01 285.823);
   --card: oklch(0.965 0.008 252);
@@ -50,19 +51,20 @@
 }
 
 .dark {
-  --background: rgb(255 255 255 / 0.05);
+  --glass-rgb: 8 10 15;
+  --background: rgb(8 10 15 / 0.05);
   --foreground: oklch(0.985 0 0);
-  --card: rgb(255 255 255 / 0.1);
+  --card: rgb(8 10 15 / 0.1);
   --card-foreground: oklch(0.985 0 0);
-  --popover: rgb(255 255 255 / 0.12);
+  --popover: rgb(8 10 15 / 0.12);
   --popover-foreground: oklch(0.985 0 0);
   --primary: oklch(0.92 0.004 286.32);
   --primary-foreground: oklch(0.21 0.006 285.885);
-  --secondary: rgb(255 255 255 / 0.12);
+  --secondary: rgb(8 10 15 / 0.12);
   --secondary-foreground: oklch(0.985 0 0);
-  --muted: rgb(255 255 255 / 0.12);
+  --muted: rgb(8 10 15 / 0.12);
   --muted-foreground: oklch(0.86 0.012 286.067);
-  --accent: rgb(255 255 255 / 0.14);
+  --accent: rgb(8 10 15 / 0.14);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: oklch(0.985 0 0);
@@ -318,7 +320,7 @@ html.legacy-webkit [data-slot='card'] {
 .dark .bg-card,
 .dark [data-slot='card'] {
   /* Dark mode: keep a translucent glass feel while improving foreground contrast */
-  background-color: rgb(255 255 255 / var(--glass-a, 0.10)) !important;
+  background-color: rgb(var(--glass-rgb, 255 255 255) / var(--glass-a, 0.10)) !important;
   backdrop-filter: blur(var(--glass-blur, 5px)) saturate(130%) !important;
   -webkit-backdrop-filter: blur(var(--glass-blur, 5px)) saturate(130%) !important;
   border: 1px solid var(--glass-dark-border, rgb(255 255 255 / 0.18)) !important;
@@ -328,7 +330,7 @@ html.legacy-webkit [data-slot='card'] {
 .dark .node-card:hover,
 .dark .bg-card:hover,
 .dark [data-slot='card']:hover {
-  background-color: rgb(255 255 255 / var(--glass-a-hover, 0.22)) !important;
+  background-color: rgb(var(--glass-rgb, 255 255 255) / var(--glass-a-hover, 0.22)) !important;
 }
 
 .node-card,
@@ -417,7 +419,7 @@ header {
 }
 
 .dark header {
-  background-color: rgb(255 255 255 / var(--glass-a, 0.10)) !important;
+  background-color: rgb(var(--glass-rgb, 255 255 255) / var(--glass-a, 0.10)) !important;
   backdrop-filter: blur(var(--glass-blur, 5px)) saturate(130%) !important;
   -webkit-backdrop-filter: blur(var(--glass-blur, 5px)) saturate(130%) !important;
   border-bottom: 1px solid rgb(255 255 255 / 0.08) !important;
@@ -432,7 +434,7 @@ header {
 }
 
 .dark .bg-background {
-  background-color: rgb(255 255 255 / var(--glass-a, 0.10)) !important;
+  background-color: rgb(var(--glass-rgb, 255 255 255) / var(--glass-a, 0.10)) !important;
   backdrop-filter: blur(var(--glass-blur, 5px)) saturate(130%) !important;
   -webkit-backdrop-filter: blur(var(--glass-blur, 5px)) saturate(130%) !important;
 }
@@ -480,7 +482,7 @@ header {
 :root.glass-bg-light:not(.dark) .node-card,
 :root.glass-bg-light:not(.dark) .bg-card,
 :root.glass-bg-light:not(.dark) [data-slot='card'] {
-  background-color: rgb(255 255 255 / var(--glass-a-light, 0.45)) !important;
+  background-color: rgb(var(--glass-rgb, 255 255 255) / var(--glass-a-light, 0.45)) !important;
   border-color: rgb(15 23 42 / 0.15) !important;
   box-shadow: 0 4px 18px rgb(15 23 42 / 0.1) !important;
 }
@@ -499,7 +501,7 @@ header {
 .dark [class~="bg-background/40"],
 .dark [class~="bg-background/50"],
 .dark [class~="bg-background/70"] {
-  background-color: rgb(255 255 255 / var(--glass-a, 0.10)) !important;
+  background-color: rgb(var(--glass-rgb, 255 255 255) / var(--glass-a, 0.10)) !important;
 }
 
 :root.glass-bg-light:not(.dark) header,
@@ -508,7 +510,7 @@ header {
 :root.glass-bg-light:not(.dark) [class~="bg-background/40"],
 :root.glass-bg-light:not(.dark) [class~="bg-background/50"],
 :root.glass-bg-light:not(.dark) [class~="bg-background/70"] {
-  background-color: rgb(255 255 255 / var(--glass-a-light, 0.45)) !important;
+  background-color: rgb(var(--glass-rgb, 255 255 255) / var(--glass-a-light, 0.45)) !important;
 }
 
 /* == v3.4.4 unify: all glass surfaces follow the card recipe ==
@@ -533,7 +535,7 @@ header,
 .dark [class~="bg-background/70"],
 .dark [class~="bg-background/80"],
 .dark .bg-background {
-  background-color: rgb(255 255 255 / var(--glass-a, 0.10)) !important;
+  background-color: rgb(var(--glass-rgb, 255 255 255) / var(--glass-a, 0.10)) !important;
 }
 
 :root.glass-bg-light:not(.dark) [class~="bg-background/10"],
@@ -546,7 +548,7 @@ header,
 :root.glass-bg-light:not(.dark) [class~="bg-background/80"],
 :root.glass-bg-light:not(.dark) header,
 :root.glass-bg-light:not(.dark) .bg-background {
-  background-color: rgb(255 255 255 / var(--glass-a-light, 0.45)) !important;
+  background-color: rgb(var(--glass-rgb, 255 255 255) / var(--glass-a-light, 0.45)) !important;
 }
 
 /* == v3.5.1: 顶部统计卡(内层CardX)与列表行吃同一配方; 地球透明度设置 == */
@@ -554,7 +556,7 @@ header,
 .node-info [class~="bg-background/40"],
 .node-info [class~="bg-background/60"],
 .node-info [class~="bg-background/80"] {
-  background-color: rgb(255 255 255 / var(--glass-a, 0.10)) !important;
+  background-color: rgb(var(--glass-rgb, 255 255 255) / var(--glass-a, 0.10)) !important;
   backdrop-filter: blur(var(--glass-blur, 5px)) saturate(130%) !important;
   -webkit-backdrop-filter: blur(var(--glass-blur, 5px)) saturate(130%) !important;
 }
@@ -563,7 +565,7 @@ header,
 :root.glass-bg-light:not(.dark) .node-info [class~="bg-background/40"],
 :root.glass-bg-light:not(.dark) .node-info [class~="bg-background/60"],
 :root.glass-bg-light:not(.dark) .node-info [class~="bg-background/80"] {
-  background-color: rgb(255 255 255 / var(--glass-a-light, 0.45)) !important;
+  background-color: rgb(var(--glass-rgb, 255 255 255) / var(--glass-a-light, 0.45)) !important;
 }
 
 /* 地球整体透明度(渲染器无关: canvas/图片都吃) */
@@ -572,4 +574,9 @@ header,
 .earth-globe-host,
 .earth-map-shell {
   opacity: var(--glass-globe-a, 0.9);
+}
+
+/* == v3.5.4: 夜间模式自定义背景图轻微压暗 == */
+.dark .background-media {
+  filter: brightness(0.82) saturate(0.95);
 }
