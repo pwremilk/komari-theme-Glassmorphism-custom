@@ -510,3 +510,41 @@ header {
 :root.glass-bg-light [class~="bg-background/70"] {
   background-color: rgb(255 255 255 / 0.45) !important;
 }
+
+/* == v3.4.4 unify: all glass surfaces follow the card recipe ==
+   dark: white 10% + blur5px ; light-bg mode: white 45% + blur5px */
+
+header,
+.bg-background,
+.bg-popover,
+.bg-secondary,
+.bg-muted {
+  backdrop-filter: blur(5px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(5px) saturate(130%) !important;
+}
+
+.dark header,
+.dark [class~="bg-background/10"],
+.dark [class~="bg-background/20"],
+.dark [class~="bg-background/30"],
+.dark [class~="bg-background/40"],
+.dark [class~="bg-background/50"],
+.dark [class~="bg-background/60"],
+.dark [class~="bg-background/70"],
+.dark [class~="bg-background/80"],
+.dark .bg-background {
+  background-color: rgb(255 255 255 / 0.10) !important;
+}
+
+:root.glass-bg-light [class~="bg-background/10"],
+:root.glass-bg-light [class~="bg-background/20"],
+:root.glass-bg-light [class~="bg-background/30"],
+:root.glass-bg-light [class~="bg-background/40"],
+:root.glass-bg-light [class~="bg-background/50"],
+:root.glass-bg-light [class~="bg-background/60"],
+:root.glass-bg-light [class~="bg-background/70"],
+:root.glass-bg-light [class~="bg-background/80"],
+:root.glass-bg-light header,
+:root.glass-bg-light .bg-background {
+  background-color: rgb(255 255 255 / 0.45) !important;
+}
