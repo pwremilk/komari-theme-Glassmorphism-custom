@@ -22,6 +22,19 @@ watch(
 )
 
 watch(
+  () => [appStore.glassAlpha, appStore.glassBlur] as const,
+  ([alpha, blur]) => {
+    const root = document.documentElement
+    const a = Math.min(100, Math.max(0, Math.round(alpha))) / 100
+    root.style.setProperty('--glass-a', a.toFixed(3))
+    root.style.setProperty('--glass-a-hover', Math.min(1, a + 0.12).toFixed(3))
+    root.style.setProperty('--glass-a-light', Math.min(1, a + 0.35).toFixed(3))
+    root.style.setProperty('--glass-blur', `${Math.min(30, Math.max(0, blur))}px`)
+  },
+  { immediate: true },
+)
+
+watch(
   () => [appStore.glassColorPreset, appStore.glassCustomColors] as const,
   ([preset, customColors]) => {
     const tokens = buildGlassThemeTokens(preset, customColors)
