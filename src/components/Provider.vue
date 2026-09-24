@@ -22,14 +22,15 @@ watch(
 )
 
 watch(
-  () => [appStore.glassAlpha, appStore.glassBlur] as const,
-  ([alpha, blur]) => {
+  () => [appStore.glassAlpha, appStore.glassBlur, appStore.globeAlpha] as const,
+  ([alpha, blur, globeA]) => {
     const root = document.documentElement
     const a = Math.min(100, Math.max(0, Math.round(alpha))) / 100
     root.style.setProperty('--glass-a', a.toFixed(3))
     root.style.setProperty('--glass-a-hover', Math.min(1, a + 0.12).toFixed(3))
     root.style.setProperty('--glass-a-light', Math.min(1, a + 0.35).toFixed(3))
     root.style.setProperty('--glass-blur', `${Math.min(30, Math.max(0, blur))}px`)
+    root.style.setProperty('--glass-globe-a', (Math.min(100, Math.max(10, Math.round(globeA))) / 100).toFixed(3))
   },
   { immediate: true },
 )

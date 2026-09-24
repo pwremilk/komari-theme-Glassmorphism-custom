@@ -1203,6 +1203,7 @@ const useAppStore = defineStore('app', () => {
   const backgroundBlur = computed<number>(() => readNumberSetting(themeSettings.value, 'backgroundBlur', 0, 0, Number.MAX_SAFE_INTEGER))
   const glassAlpha = computed<number>(() => readNumberSetting(themeSettings.value, 'glassAlpha', 10, 0, 100))
   const glassBlur = computed<number>(() => readNumberSetting(themeSettings.value, 'glassBlur', 5, 0, 30))
+  const globeAlpha = computed<number>(() => readNumberSetting(themeSettings.value, 'globeAlpha', 90, 10, 100))
 
   const backgroundOverlay = computed<number>(() => readNumberSetting(themeSettings.value, 'backgroundOverlay', 0, -100, 100))
 
@@ -1358,6 +1359,7 @@ const useAppStore = defineStore('app', () => {
     backgroundBlur,
     glassAlpha,
     glassBlur,
+    globeAlpha,
     backgroundOverlay,
     isLoggedIn,
     authStatus,
