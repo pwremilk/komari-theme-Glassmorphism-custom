@@ -463,7 +463,7 @@ header {
 }
 
 /* ── custom: 背景图偏亮时文字自动转深色 ── */
-:root.glass-bg-light {
+:root.glass-bg-light:not(.dark) {
   --background: rgb(255 255 255 / 0.35);
   --foreground: rgb(17 20 28);
   --card: rgb(255 255 255 / 0.45);
@@ -477,16 +477,16 @@ header {
   --accent: rgb(255 255 255 / 0.5);
   --accent-foreground: rgb(17 20 28);
 }
-:root.glass-bg-light .node-card,
-:root.glass-bg-light .bg-card,
-:root.glass-bg-light [data-slot='card'] {
+:root.glass-bg-light:not(.dark) .node-card,
+:root.glass-bg-light:not(.dark) .bg-card,
+:root.glass-bg-light:not(.dark) [data-slot='card'] {
   background-color: rgb(255 255 255 / var(--glass-a-light, 0.45)) !important;
   border-color: rgb(15 23 42 / 0.15) !important;
   box-shadow: 0 4px 18px rgb(15 23 42 / 0.1) !important;
 }
-:root.glass-bg-light body,
-:root.glass-bg-light .node-card,
-:root.glass-bg-light [data-slot='card'] {
+:root.glass-bg-light:not(.dark) body,
+:root.glass-bg-light:not(.dark) .node-card,
+:root.glass-bg-light:not(.dark) [data-slot='card'] {
   text-shadow: none;
 }
 :root:not(.glass-bg-light) .node-card,
@@ -502,12 +502,12 @@ header {
   background-color: rgb(255 255 255 / var(--glass-a, 0.10)) !important;
 }
 
-:root.glass-bg-light header,
-:root.glass-bg-light .bg-background,
-:root.glass-bg-light [class~="bg-background/10"],
-:root.glass-bg-light [class~="bg-background/40"],
-:root.glass-bg-light [class~="bg-background/50"],
-:root.glass-bg-light [class~="bg-background/70"] {
+:root.glass-bg-light:not(.dark) header,
+:root.glass-bg-light:not(.dark) .bg-background,
+:root.glass-bg-light:not(.dark) [class~="bg-background/10"],
+:root.glass-bg-light:not(.dark) [class~="bg-background/40"],
+:root.glass-bg-light:not(.dark) [class~="bg-background/50"],
+:root.glass-bg-light:not(.dark) [class~="bg-background/70"] {
   background-color: rgb(255 255 255 / var(--glass-a-light, 0.45)) !important;
 }
 
@@ -536,16 +536,16 @@ header,
   background-color: rgb(255 255 255 / var(--glass-a, 0.10)) !important;
 }
 
-:root.glass-bg-light [class~="bg-background/10"],
-:root.glass-bg-light [class~="bg-background/20"],
-:root.glass-bg-light [class~="bg-background/30"],
-:root.glass-bg-light [class~="bg-background/40"],
-:root.glass-bg-light [class~="bg-background/50"],
-:root.glass-bg-light [class~="bg-background/60"],
-:root.glass-bg-light [class~="bg-background/70"],
-:root.glass-bg-light [class~="bg-background/80"],
-:root.glass-bg-light header,
-:root.glass-bg-light .bg-background {
+:root.glass-bg-light:not(.dark) [class~="bg-background/10"],
+:root.glass-bg-light:not(.dark) [class~="bg-background/20"],
+:root.glass-bg-light:not(.dark) [class~="bg-background/30"],
+:root.glass-bg-light:not(.dark) [class~="bg-background/40"],
+:root.glass-bg-light:not(.dark) [class~="bg-background/50"],
+:root.glass-bg-light:not(.dark) [class~="bg-background/60"],
+:root.glass-bg-light:not(.dark) [class~="bg-background/70"],
+:root.glass-bg-light:not(.dark) [class~="bg-background/80"],
+:root.glass-bg-light:not(.dark) header,
+:root.glass-bg-light:not(.dark) .bg-background {
   background-color: rgb(255 255 255 / var(--glass-a-light, 0.45)) !important;
 }
 
@@ -559,10 +559,10 @@ header,
   -webkit-backdrop-filter: blur(var(--glass-blur, 5px)) saturate(130%) !important;
 }
 
-:root.glass-bg-light [data-general-card-key],
-:root.glass-bg-light .node-info [class~="bg-background/40"],
-:root.glass-bg-light .node-info [class~="bg-background/60"],
-:root.glass-bg-light .node-info [class~="bg-background/80"] {
+:root.glass-bg-light:not(.dark) [data-general-card-key],
+:root.glass-bg-light:not(.dark) .node-info [class~="bg-background/40"],
+:root.glass-bg-light:not(.dark) .node-info [class~="bg-background/60"],
+:root.glass-bg-light:not(.dark) .node-info [class~="bg-background/80"] {
   background-color: rgb(255 255 255 / var(--glass-a-light, 0.45)) !important;
 }
 
