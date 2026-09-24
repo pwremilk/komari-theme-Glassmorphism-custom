@@ -326,10 +326,7 @@ class InitManager {
       return
     }
 
-    // 首次失败时显示提示
-    if (attempts === 0) {
-      window.$message?.error('WebSocket 建立失败，正在尝试重连。')
-    }
+    // 静默重连: 后台标签页挂起导致 WS 断开属于常态, 不再弹错误提示
 
     const nextAttempts = attempts + 1
     this.nodesStore.updateWsState('reconnecting', nextAttempts)
