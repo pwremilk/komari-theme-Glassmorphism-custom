@@ -580,3 +580,81 @@ header,
 .dark .background-media {
   filter: brightness(0.82) saturate(0.95);
 }
+
+/* == v3.5.5 FINAL UNIFY: one glass recipe for every surface, day & night ==
+   Rule: any surface that ever looked like glass gets the SAME background
+   alpha (day=--glass-a-light, night=--glass-a) and the SAME blur
+   (--glass-blur). Setting glassBlur/glassAlpha in panel settings now
+   changes every surface at once. This block must stay at the END of the
+   file; equal specificity + later position = wins. */
+
+/* night base recipe: header, all bg-background fractions, cards, popovers,
+   secondary/muted surfaces, slate tinted chips, card/white fractions */
+.dark .glass-header,
+.dark [class*="bg-background/"],
+.dark .bg-background,
+.dark header,
+.dark .node-card,
+.dark .bg-card,
+.dark [data-slot='card'],
+.dark .bg-popover,
+.dark .bg-secondary,
+.dark .bg-muted,
+.dark [class*="bg-card/"],
+.dark [class*="bg-white/"],
+.dark .bg-slate-500\/5,
+.dark .bg-slate-500\/10 {
+  background-color: rgb(var(--glass-rgb, 8 10 15) / var(--glass-a, 0.10)) !important;
+  backdrop-filter: blur(var(--glass-blur, 5px)) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(var(--glass-blur, 5px)) saturate(130%) !important;
+}
+
+/* day base recipe (default light + bright-wallpaper light share it) */
+.glass-header,
+.node-card,
+.bg-card,
+[data-slot='card'],
+.bg-popover,
+.bg-secondary,
+.bg-muted,
+header,
+.bg-background,
+[class*="bg-background/"],
+[class*="bg-card/"],
+[class*="bg-white/"],
+.bg-slate-500\/5,
+.bg-slate-500\/10 {
+  background-color: rgb(255 255 255 / var(--glass-a-light, 0.45)) !important;
+  backdrop-filter: blur(var(--glass-blur, 5px)) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(var(--glass-blur, 5px)) saturate(130%) !important;
+}
+
+/* night override must beat the day block above (later + .dark specificity) */
+.dark .glass-header,
+.dark .node-card,
+.dark .bg-card,
+.dark [data-slot='card'],
+.dark .bg-popover,
+.dark .bg-secondary,
+.dark .bg-muted,
+.dark header,
+.dark .bg-background,
+.dark [class*="bg-background/"],
+.dark [class*="bg-card/"],
+.dark [class*="bg-white/"],
+.dark .bg-slate-500\/5,
+.dark .bg-slate-500\/10 {
+  background-color: rgb(var(--glass-rgb, 8 10 15) / var(--glass-a, 0.10)) !important;
+}
+
+/* hover still lifts, same recipe +0.12 (already derived in Provider.vue) */
+.dark .node-card:hover,
+.dark .bg-card:hover,
+.dark [data-slot='card']:hover {
+  background-color: rgb(var(--glass-rgb, 8 10 15) / var(--glass-a-hover, 0.22)) !important;
+}
+.node-card:hover,
+.bg-card:hover,
+[data-slot='card']:hover {
+  background-color: rgb(255 255 255 / var(--glass-a-light, 0.45)) !important;
+}
